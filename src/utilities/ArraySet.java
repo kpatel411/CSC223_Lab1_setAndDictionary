@@ -8,7 +8,7 @@ import java.util.ListIterator;
 import java.util.Set;
 import java.util.Spliterator;
 
-public class ArraySet <E> implements List<E>, Set<E>
+public class ArraySet <E> implements List<E>, Set<E> //wrote in list and set w/ generics and imported arrayList and arraySet
 {
 	protected ArrayList<E> _list;
 	
