@@ -8,11 +8,7 @@ import java.util.ListIterator;
 import java.util.Set;
 import java.util.Spliterator;
 
-<<<<<<< Updated upstream
 public class ArraySet <E> implements List<E>, Set<E> //wrote in list and set w/ generics and imported arrayList and arraySet
-=======
-public class ArraySet <E> implements List<E>, Set<E>
->>>>>>> Stashed changes
 {
 
 	protected ArrayList<E> _list;
@@ -57,7 +53,6 @@ public class ArraySet <E> implements List<E>, Set<E>
 	}
 
 	@Override
-<<<<<<< Updated upstream
 	public int size() {
 		// TODO Auto-generated method stub
 		return 0;
@@ -84,9 +79,7 @@ public class ArraySet <E> implements List<E>, Set<E>
 	@Override
 	public Object[] toArray() {
 		// TODO Auto-generated method stub
-=======
 	public Object[] toArray() {
->>>>>>> Stashed changes
 		return null;
 	}
 
@@ -96,14 +89,11 @@ public class ArraySet <E> implements List<E>, Set<E>
 		return null;
 	}
 
-<<<<<<< Updated upstream
 	@Override
 	public boolean add(E e) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-=======
->>>>>>> Stashed changes
 
 	@Override
 	public boolean remove(Object o) {
@@ -117,14 +107,11 @@ public class ArraySet <E> implements List<E>, Set<E>
 		return false;
 	}
 
-<<<<<<< Updated upstream
 	@Override
 	public boolean addAll(Collection<? extends E> c) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-=======
->>>>>>> Stashed changes
 
 	@Override
 	public boolean addAll(int index, Collection<? extends E> c) {
@@ -146,18 +133,10 @@ public class ArraySet <E> implements List<E>, Set<E>
 
 	@Override
 	public void clear() {
-<<<<<<< Updated upstream
-		// TODO Auto-generated method stub
-		
-=======
->>>>>>> Stashed changes
 	}
 
 	@Override
 	public E get(int index) {
-<<<<<<< Updated upstream
-		// TODO Auto-generated method stub
-=======
 		for (int i = 0; i < _list.size(); i++)
 		{
 			if (i == index)
@@ -165,15 +144,11 @@ public class ArraySet <E> implements List<E>, Set<E>
 				return _list.get(index);
 			}
 		}
->>>>>>> Stashed changes
 		return null;
 	}
 
 	@Override
 	public E set(int index, E element) {
-<<<<<<< Updated upstream
-		// TODO Auto-generated method stub
-=======
 		for (int i = 0; i <_list.size(); i++)
 		{
 			if (i == index)
@@ -181,37 +156,22 @@ public class ArraySet <E> implements List<E>, Set<E>
 				_list.set(index, element);
 			}
 		}
->>>>>>> Stashed changes
 		return null;
 	}
 
 	@Override
 	public void add(int index, E element) {
-<<<<<<< Updated upstream
-		// TODO Auto-generated method stub
-		
-=======
 		_list.add(index, element);
-
->>>>>>> Stashed changes
 	}
 
 	@Override
 	public E remove(int index) {
-<<<<<<< Updated upstream
-		// TODO Auto-generated method stub
-=======
 		_list.remove(index);
->>>>>>> Stashed changes
 		return null;
 	}
 
 	@Override
 	public int indexOf(Object o) {
-<<<<<<< Updated upstream
-		// TODO Auto-generated method stub
-		return 0;
-=======
 		if(_list.contains(o))
 		{
 			for(int i = 0; i < _list.size(); i++)
@@ -223,15 +183,10 @@ public class ArraySet <E> implements List<E>, Set<E>
 			}
 		}
 		return -1;
->>>>>>> Stashed changes
 	}
 
 	@Override
 	public int lastIndexOf(Object o) {
-<<<<<<< Updated upstream
-		// TODO Auto-generated method stub
-		return 0;
-=======
 		if(_list.contains(o))
 		{
 			for (int i = _list.size()-1; i >= 0; i--)
@@ -243,49 +198,29 @@ public class ArraySet <E> implements List<E>, Set<E>
 			}
 		}
 		return -1;
->>>>>>> Stashed changes
 	}
 
 	@Override
 	public ListIterator<E> listIterator() {
-<<<<<<< Updated upstream
-		// TODO Auto-generated method stub
-=======
 		_list.listIterator();
->>>>>>> Stashed changes
 		return null;
 	}
 
 	@Override
 	public ListIterator<E> listIterator(int index) {
-<<<<<<< Updated upstream
-		// TODO Auto-generated method stub
-=======
 		_list.listIterator(index);
->>>>>>> Stashed changes
 		return null;
 	}
 
 	@Override
 	public List<E> subList(int fromIndex, int toIndex) {
-<<<<<<< Updated upstream
-		// TODO Auto-generated method stub
-		return null;
-=======
 		List<E> newList = _list.subList(fromIndex, toIndex);
 		return newList;
->>>>>>> Stashed changes
 	}
 
 	@Override
 	public Spliterator<E> spliterator() {
-<<<<<<< Updated upstream
-		// TODO Auto-generated method stub
 		return List.super.spliterator();
 	}
 
-=======
-		return List.super.spliterator();
-	}
->>>>>>> Stashed changes
 }
