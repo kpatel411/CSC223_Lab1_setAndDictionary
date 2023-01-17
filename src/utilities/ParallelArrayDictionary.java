@@ -13,6 +13,8 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	
 	//stuff from unimplemented import
 	
+	protected ParallelArrayDictionary<Key, Value> _dictionary;
+	
 	public ParallelArrayDictionary()
 	{
 		// TODO Auto-generated constructor stub
@@ -49,32 +51,30 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	}
 	@Override
 	public Value remove(Object key) {
-		// TODO Auto-generated method stub
+		_dictionary.remove(key); 
 		return null;
 	}
 	@Override
 	public void putAll(Map<? extends Key, ? extends Value> m) {
-		// TODO Auto-generated method stub
-		
+		putAll(_dictionary);
 	}
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-		
+		_dictionary.clear();
 	}
 	@Override
 	public Set<Key> keySet() {
-		// TODO Auto-generated method stub
+		_dictionary.keySet();
 		return null;
 	}
 	@Override
 	public Collection<Value> values() {
-		// TODO Auto-generated method stub
+		_dictionary.values();
 		return null;
 	}
 	@Override
 	public Set<Entry<Key, Value>> entrySet() {
-		// TODO Auto-generated method stub
+		_dictionary.entrySet();
 		return null;
 	}
 
