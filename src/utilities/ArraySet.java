@@ -53,33 +53,8 @@ public class ArraySet <E> implements List<E>, Set<E> //wrote in list and set w/ 
 	}
 
 	@Override
-	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean contains(Object o) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public Iterator<E> iterator() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public Object[] toArray() {
 		// TODO Auto-generated method stub
-	public Object[] toArray() {
 		return null;
 	}
 
@@ -87,12 +62,6 @@ public class ArraySet <E> implements List<E>, Set<E> //wrote in list and set w/ 
 	public <T> T[] toArray(T[] a) {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public boolean add(E e) {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 	@Override
@@ -107,11 +76,6 @@ public class ArraySet <E> implements List<E>, Set<E> //wrote in list and set w/ 
 		return false;
 	}
 
-	@Override
-	public boolean addAll(Collection<? extends E> c) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 	@Override
 	public boolean addAll(int index, Collection<? extends E> c) {
