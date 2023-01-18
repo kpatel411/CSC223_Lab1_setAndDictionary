@@ -19,7 +19,6 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	
 	public ParallelArrayDictionary()
 	{
-		// TODO Auto-generated constructor stub
 	}
 	@Override
 	public int size() {
@@ -70,17 +69,16 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	}
 	@Override
 	public Value put(Key key, Value value) {
-		if(_keys.isEmpty()) { return null; }
-		if(_values.isEmpty()) { return null; }
 		Value oldVal = null;
-		for(int i = 0; i < _keys.size(); i++)
+		if(_keys.contains(key))
 		{
-			if(_values.get(i).equals(null))
-			{
-				return null;
-			}
-			else { oldVal = _values.get(i); }
-			_values.set(i, value);
+			oldVal = _values.get(_keys.indexOf(key));
+			_values.set(_keys.indexOf(key), value);
+		}
+		else
+		{
+			_keys.add(key);
+			_values.add(value);
 		}
 		return oldVal;
 	}
