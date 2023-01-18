@@ -20,51 +20,48 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	}
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		_keys.size();
-		_values.size();
-		return 0;
+		int numSize = _keys.size();
+		return numSize;
 	}
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		for(int i = 0; i < _keys.size(); i++) {
-			if (i == 0) {
-				_keys.isEmpty();
-				_values.isEmpty();
-			}
+		if(_keys.size() == 0)
+		{
+			return true;
 		}
 		return false;
 	}
 	@Override
 	public boolean containsKey(Object key) {
-		// TODO Auto-generated method stub
 		for(int i = 0; i < _keys.size(); i++)
 		{
 			if(_keys.get(i).equals(key))
-			{ 
-				return _keys.contains(key);
+			{
+				return true;
 			}
 		}
 		return false;
 	}
 	@Override
 	public boolean containsValue(Object value) {
-		// TODO Auto-generated method stub
 		for(int i = 0; i < _values.size(); i++)
 		{
 			if(_values.get(i).equals(value))
-			{ 
-				return _values.contains(value);
+			{
+				return true;
 			}
 		}
 		return false;
 	}
 	@Override
 	public Value get(Object key) {
-		// TODO Auto-generated method stub
-		_keys.get(key);
-		_values.get(key);
+		for(int i = 0; i < _keys.size(); i++)
+		{
+			if(_keys.get(i).equals(key))
+			{
+				return _values.get(i);
+			}
+		}
 		return null;
 	}
 	@Override
@@ -107,24 +104,31 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	}
 	@Override
 	public Set<Key> keySet() {
-		return null;
+		Set<Key> _keysSet = new Set<Key>();
+		for(int i = 0; i < _keys.size(); i++)
+		{
+			_keysSet.add(_keys.get(i));
+		}
+		return _keysSet;
 	}
 	@Override
 	public Collection<Value> values() {
-		Collection<Value> _valuesCollection = new Collection<Value>();
+		Collection<Value> _valuesCollection = new ArrayList<Value>();
+		for(int i = 0; i <_values.size(); i++)
 		{
-			for(int i = 0; i <_values.size(); i++)
-			{
-				_valuesCollection.add(_values.get(i));
-			}
+			_valuesCollection.add(_values.get(i));
 		}
 		return _valuesCollection;
 	}
 	@Override
 	public Set<Entry<Key, Value>> entrySet() {
 		Set<Entry<Key, Value>> _setEntry = new Set<Entry<Key, Value>>();
+		for(int i = 0; i < _keys.size(); i++)
 		{
-			
+			for(int x = 0; x < _values.size(); x++)
+			{
+				_setEntry.add(_keys.get(i), _values.get(x));
+			}
 		}
 	}
 
