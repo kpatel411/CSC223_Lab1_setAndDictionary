@@ -44,14 +44,14 @@ class ParallelArrayDictionaryTest
 		ParallelArrayDictionary<String, String> testHasValue = new ParallelArrayDictionary<String, String>();
 		testHasValue.put("This is", "A test");
 		testHasValue.put("This is also", "a test too");
-		assertEquals("A test", testHasValue.put("This is", "A test"));
+		assertEquals("A test", testHasValue.put("This is", "not a test"));
 		
-		//Tests when a value does not exist for a key
+		//Tests when a value and key do not exist
 		ParallelArrayDictionary<String, String> testDoesNotHaveValue = new ParallelArrayDictionary<String, String>();
-		testDoesNotHaveValue.put("This is also a test", null);
+		testDoesNotHaveValue.put("This is also a test", "okay");
 		testDoesNotHaveValue.put("Yes", "No");
 		testDoesNotHaveValue.put("Okay", "ok");
-		assertNull(testDoesNotHaveValue.put("This is also a test", "Yep"));
+		assertNull(testDoesNotHaveValue.put("Hi there", "this is a test"));
 		
 		//Tests when keys and values are empty
 		ParallelArrayDictionary<String, String> testEmptyPAD = new ParallelArrayDictionary<String, String>();
