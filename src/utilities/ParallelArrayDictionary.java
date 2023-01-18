@@ -1,5 +1,7 @@
 package utilities;
 
+import java.util.AbstractMap;
+import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -56,20 +58,29 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	}
 	@Override
 	public Value get(Object key) {
+		Value val = _values.get(0);
 		for(int i = 0; i < _keys.size(); i++)
 		{
 			if(_keys.get(i).equals(key))
 			{
-				return _values.get(i);
+				val = _values.get(i);
 			}
 		}
-		return null;
+		return val;
 	}
 	@Override
 	public Value put(Key key, Value value) {
-		_keys.add(key);
-		_values.add(value);
-		return null;
+		Value oldVal = _values.get(0);
+		for(int i = 0; i < _keys.size(); i++)
+		{
+			if(_values.get(i).equals(null))
+			{
+				return null;
+			}
+			else { oldVal = _values.get(i); }
+			_values.set(i, value);
+		}
+		return oldVal;
 	}
 	@Override
 	public Value remove(Object key) {
@@ -123,14 +134,16 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	}
 	@Override
 	public Set<Entry<Key, Value>> entrySet() {
-		Set<Entry<Key, Value>> _setEntry = new HashSet<Entry<Key, Value>>();
+		Key k = _keys.get(0);
+		Value v = _values.get(0);
+		Set<Entry<Key, Value>> _setEntry = (Set<Entry<Key, Value>>) new AbstractMap.SimpleEntry<Key, Value>(k,v);
 		for(int i = 0; i < _keys.size(); i++)
 		{
-			for(int x = 0; x < _values.size(); x++)
-			{
-				_setEntry.add(_keys.get(i), _values.get(x));
-			}
+			k = _keys.get(i);
+			v = _values.get(i);
+			((Map<Key, Value>) _setEntry).put(k,v);
 		}
+		return _setEntry;
 	}
 
 }
