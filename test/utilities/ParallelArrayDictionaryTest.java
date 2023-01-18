@@ -124,13 +124,73 @@ class ParallelArrayDictionaryTest
 		assertEquals(testHasValues.size(), newTestHasValues.size());
 		
 		//Test with null values
-		
-		
+		ArraySet<String> testNullValues1 = new ArraySet<String>();
+		ArrayList<String> testNullValues2 = new ArrayList<String>();
+		ParallelArrayDictionary<ArraySet<String>, ArrayList<String>> testNullValues = new ParallelArrayDictionary<ArraySet<String>, ArrayList<String>>();
+		ParallelArrayDictionary<ArraySet<String>, ArrayList<String>> newTestNullValues = new ParallelArrayDictionary<ArraySet<String>, ArrayList<String>>();
+		testNullValues1.add("Hi There");
+		testNullValues1.add("How are you");
+		testNullValues1.add("This is a test");
+		testNullValues2.add("A");
+		testNullValues2.add(null);
+		testNullValues2.add("B");
+		testNullValues.put(testNullValues1, testNullValues2);
+		newTestNullValues.putAll(testNullValues);
+		assertEquals(testNullValues.size(), newTestNullValues.size());
 		
 	}
 
 	@Test
 	void testClear()
 	{
+		//Test with empty dictionary
+		ArraySet<String> testEmpty1 = new ArraySet<String>();
+		ArrayList<String> testEmpty2 = new ArrayList<String>();
+		ParallelArrayDictionary<ArraySet<String>, ArrayList<String>> testEmpty = new ParallelArrayDictionary<ArraySet<String>, ArrayList<String>>();
+		testEmpty.put(testEmpty1, testEmpty2);
+		testEmpty.clear();
+		assertEquals(0, testEmpty.size());
+		
+		//Test with null values
+		ArraySet<String> testNull1 = new ArraySet<String>();
+		ArrayList<String> testNull2 = new ArrayList<String>();
+		ParallelArrayDictionary<ArraySet<String>, ArrayList<String>> testNull = new ParallelArrayDictionary<ArraySet<String>, ArrayList<String>>();
+		testNull1.add("A");
+		testNull1.add("B");
+		testNull1.add("C");
+		testNull2.add(null);
+		testNull2.add(null);
+		testNull2.add("Hi");
+		testNull.put(testNull1, testNull2);
+		testNull.clear();
+		assertEquals(0, testNull.size());
+		
+		//Test with existing keys and values
+		ArraySet<String> testHasKV1 = new ArraySet<String>();
+		ArrayList<String> testHasKV2 = new ArrayList<String>();
+		ParallelArrayDictionary<ArraySet<String>, ArrayList<String>> testHasKV = new ParallelArrayDictionary<ArraySet<String>, ArrayList<String>>();
+		testHasKV1.add("A");
+		testHasKV1.add("B");
+		testHasKV1.add("C");
+		testHasKV2.add("Hello");
+		testHasKV2.add("Hey");
+		testHasKV2.add("Hi");
+		testHasKV.put(testHasKV1, testHasKV2);
+		testHasKV.clear();
+		assertEquals(0, testHasKV.size());
+		
+		//Test with duplicates
+		ArraySet<String> testHasDuplicates1 = new ArraySet<String>();
+		ArrayList<String> testHasDuplicates2 = new ArrayList<String>();
+		ParallelArrayDictionary<ArraySet<String>, ArrayList<String>> testHasDuplicates = new ParallelArrayDictionary<ArraySet<String>, ArrayList<String>>();
+		testHasDuplicates1.add("A");
+		testHasDuplicates1.add("B");
+		testHasDuplicates1.add("C");
+		testHasDuplicates2.add("Hello");
+		testHasDuplicates2.add("Hey");
+		testHasDuplicates2.add("Hi");
+		testHasDuplicates.put(testHasKV1, testHasKV2);
+		testHasDuplicates.clear();
+		assertEquals(0, testHasDuplicates.size());
 	}
 }

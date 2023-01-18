@@ -70,7 +70,9 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	}
 	@Override
 	public Value put(Key key, Value value) {
-		Value oldVal = _values.get(0);
+		if(_keys.isEmpty()) { return null; }
+		if(_values.isEmpty()) { return null; }
+		Value oldVal = null;
 		for(int i = 0; i < _keys.size(); i++)
 		{
 			if(_values.get(i).equals(null))
@@ -84,17 +86,18 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	}
 	@Override
 	public Value remove(Object key) {
-		if(_keys.contains(key))
+		if(_values.isEmpty()) { return null; } 
+		Value oldVal = null;
+		for(int i = 0; i < _keys.size(); i++)
 		{
-			for(int i = 0; i < _keys.size(); i++)
+			if(_keys.get(i).equals(key))
 			{
-				if(_keys.get(i).equals(key))
-				{
-					_keys.remove(i);
-				}
+				if(_values.get(i).equals(null)) { return null; }
+				else { oldVal = _values.get(i); }
+				_values.remove(i);
 			}
 		}
-		return null;
+		return oldVal;
 	}
 	@Override
 	public void putAll(Map<? extends Key, ? extends Value> m) {
