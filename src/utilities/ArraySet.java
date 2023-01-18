@@ -36,9 +36,11 @@ public class ArraySet <E> implements List<E>, Set<E> //wrote in list and set w/ 
 	public int size() {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < _list.size(); i++) {
-			return _list.size();
+			if (i != 0) {
+			return _list.size();}
 		}
 		return 0;
+
 	}
 
 	@Override
@@ -48,14 +50,16 @@ public class ArraySet <E> implements List<E>, Set<E> //wrote in list and set w/ 
 			if (i != 0)
 				return _list.isEmpty();
 		}
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean contains(Object o) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < _list.size(); i++) {
+			if (i != 0) {
 			return _list.contains(o);
+			}
 		}
 		return false;
 	}
@@ -63,6 +67,11 @@ public class ArraySet <E> implements List<E>, Set<E> //wrote in list and set w/ 
 	@Override
 	public Iterator<E> iterator() {
 		// TODO Auto-generated method stub
+		for (int i = 0; i < _list.size(); i++) {
+			if (i > 0) {
+			return _list.iterator();
+			}
+		}
 		return null;
 	}
 
@@ -70,7 +79,9 @@ public class ArraySet <E> implements List<E>, Set<E> //wrote in list and set w/ 
 	public Object[] toArray() {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < _list.size(); i++) {
+			if (i != 0) {
 			return _list.toArray();
+			}
 		}
 		return null;
 	}
@@ -79,7 +90,9 @@ public class ArraySet <E> implements List<E>, Set<E> //wrote in list and set w/ 
 	public <T> T[] toArray(T[] a) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < _list.size(); i++) {
+			if (i != 0) {
 			return _list.toArray(a);
+			}
 		}
 		return null;
 	}
@@ -99,8 +112,10 @@ public class ArraySet <E> implements List<E>, Set<E> //wrote in list and set w/ 
 	public boolean containsAll(Collection<?> c) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < _list.size(); i++) {
+			if (i != 0) {
 			//somehow check to see if c in collection compares to other values >>conditional
 				return _list.containsAll(c);
+			}
 		}
 		return false;
 	}
@@ -132,7 +147,9 @@ public class ArraySet <E> implements List<E>, Set<E> //wrote in list and set w/ 
 	public boolean retainAll(Collection<?> c) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < _list.size(); i++) {
+			if (i != 0) {
 			return _list.retainAll(c);
+			}
 		}
 		return false;
 	}
