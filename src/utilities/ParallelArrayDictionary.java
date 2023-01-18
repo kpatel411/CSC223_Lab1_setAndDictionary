@@ -13,7 +13,6 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	
 	//stuff from unimplemented import
 	
-	protected ParallelArrayDictionary<Key, Value> _dictionary;
 	
 	public ParallelArrayDictionary()
 	{
@@ -46,36 +45,63 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	}
 	@Override
 	public Value put(Key key, Value value) {
-		// TODO Auto-generated method stub
+		_keys.add(key);
+		_values.add(value);
 		return null;
 	}
 	@Override
 	public Value remove(Object key) {
-		_dictionary.remove(key); 
+		if(_keys.contains(key))
+		{
+			for(int i = 0; i < _keys.size(); i++)
+			{
+				if(_keys.get(i).equals(key))
+				{
+					_keys.remove(i);
+				}
+			}
+		}
 		return null;
 	}
 	@Override
 	public void putAll(Map<? extends Key, ? extends Value> m) {
-		putAll(_dictionary);
+		ArraySet<Key> _newKeys = new ArraySet<Key>();
+		ArrayList<Value> _newValues = new ArrayList<Value>();
+		for(int i = 0; i < _keys.size(); i++)
+		{
+			_newKeys.add(_keys.get(i));
+		}
+		for(int i = 0; i < _values.size(); i++)
+		{
+			_newValues.add(_values.get(i));
+		}
 	}
 	@Override
 	public void clear() {
-		_dictionary.clear();
+		_keys.clear();
+		_values.clear();
 	}
 	@Override
 	public Set<Key> keySet() {
-		_dictionary.keySet();
 		return null;
 	}
 	@Override
 	public Collection<Value> values() {
-		_dictionary.values();
-		return null;
+		Collection<Value> _valuesCollection = new Collection<Values>();
+		{
+			for(int i = 0; i <_values.size(); i++)
+			{
+				_valuesCollection.add(_values.get(i));
+			}
+		}
+		return _valuesCollection;
 	}
 	@Override
 	public Set<Entry<Key, Value>> entrySet() {
-		_dictionary.entrySet();
-		return null;
+		Set<Entry<Key, Value>> _setEntry = new Set<Entry<Key, Value>>();
+		{
+			
+		}
 	}
 
 }
