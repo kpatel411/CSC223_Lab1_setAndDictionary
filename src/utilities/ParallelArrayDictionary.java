@@ -87,7 +87,7 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	}
 	@Override
 	public Collection<Value> values() {
-		Collection<Value> _valuesCollection = new Collection<Values>();
+		Collection<Value> _valuesCollection = new Collection<Value>();
 		{
 			for(int i = 0; i <_values.size(); i++)
 			{

@@ -18,6 +18,7 @@ public class ArraySet <E> implements List<E>, Set<E> //wrote in list and set w/ 
 	//Adds element to list if it doesn't contain the element
 	@Override
 	public boolean add(E e) {
+		_list.add(e);
 		return false;
 	}
 
@@ -25,24 +26,35 @@ public class ArraySet <E> implements List<E>, Set<E> //wrote in list and set w/ 
 	@Override
 	public boolean addAll(Collection<? extends E> c) {
 		// TODO Auto-generated method stub
+		_list.addAll(c);
 		return false;
 	}
 	//Returns number of elements in the list
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub
+		for (int i = 0; i < _list.size(); i++) {
+			return _list.size();
+		}
 		return 0;
 	}
 
 	@Override
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub
+		for (int i = 0; i < _list.size(); i++) {
+			if (i != 0)
+				return _list.isEmpty();
+		}
 		return false;
 	}
 
 	@Override
 	public boolean contains(Object o) {
 		// TODO Auto-generated method stub
+		for (int i = 0; i < _list.size(); i++) {
+			return _list.contains(o);
+		}
 		return false;
 	}
 
@@ -55,24 +67,39 @@ public class ArraySet <E> implements List<E>, Set<E> //wrote in list and set w/ 
 	@Override
 	public Object[] toArray() {
 		// TODO Auto-generated method stub
+		for (int i = 0; i < _list.size(); i++) {
+			return _list.toArray();
+		}
 		return null;
 	}
 
 	@Override
 	public <T> T[] toArray(T[] a) {
 		// TODO Auto-generated method stub
+		for (int i = 0; i < _list.size(); i++) {
+			return _list.toArray(a);
+		}
 		return null;
 	}
 
 	@Override
 	public boolean remove(Object o) {
 		// TODO Auto-generated method stub
+		for (int i = 0; i < _list.size(); i++) {
+			if (i != 0) {
+				return _list.remove(o);
+			}
+		}
 		return false;
 	}
 
 	@Override
 	public boolean containsAll(Collection<?> c) {
 		// TODO Auto-generated method stub
+		for (int i = 0; i < _list.size(); i++) {
+			//somehow check to see if c in collection compares to other values >>conditional
+				return _list.containsAll(c);
+		}
 		return false;
 	}
 
@@ -80,23 +107,37 @@ public class ArraySet <E> implements List<E>, Set<E> //wrote in list and set w/ 
 	@Override
 	public boolean addAll(int index, Collection<? extends E> c) {
 		// TODO Auto-generated method stub
+		for (int i = 0; i < _list.size(); i++) {
+			if (i == index) {
+				return _list.addAll(index, c);
+			}
+		}
 		return false;
 	}
 
 	@Override
 	public boolean removeAll(Collection<?> c) {
 		// TODO Auto-generated method stub
+		for (int i = 0; i < _list.size(); i++) {
+			if (i != 0) {
+				return _list.removeAll(c);
+			}
+		}
 		return false;
 	}
 
 	@Override
 	public boolean retainAll(Collection<?> c) {
 		// TODO Auto-generated method stub
+		for (int i = 0; i < _list.size(); i++) {
+			return _list.retainAll(c);
+		}
 		return false;
 	}
 
 	@Override
 	public void clear() {
+		_list.clear();
 	}
 
 	@Override
