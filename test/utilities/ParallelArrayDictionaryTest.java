@@ -26,6 +26,7 @@ class ParallelArrayDictionaryTest
 		ParallelArrayDictionary<String, String> testNull = new ParallelArrayDictionary<String, String>();
 		testNull.put("Hello", null);
 		testNull.put("Hi", "There");
+		testNull.put("Yes", "No");
 		
 		
 		//Tests with strings

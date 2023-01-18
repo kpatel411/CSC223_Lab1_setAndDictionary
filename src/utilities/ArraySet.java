@@ -25,9 +25,11 @@ public class ArraySet <E> implements List<E>, Set<E> //wrote in list and set w/ 
 	//Adds all elements to the set
 	@Override
 	public boolean addAll(Collection<? extends E> c) {
-		// TODO Auto-generated method stub
-		_list.addAll(c);
-		return false;
+		if(_list.addAll(c))
+		{
+			return true;
+		}
+		else { return false; }
 	}
 	//Returns number of elements in the list
 	@Override
