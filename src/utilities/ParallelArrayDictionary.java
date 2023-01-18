@@ -2,6 +2,7 @@ package utilities;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -104,7 +105,7 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	}
 	@Override
 	public Set<Key> keySet() {
-		Set<Key> _keysSet = new Set<Key>();
+		Set<Key> _keysSet = new HashSet<Key>();
 		for(int i = 0; i < _keys.size(); i++)
 		{
 			_keysSet.add(_keys.get(i));
@@ -122,7 +123,7 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	}
 	@Override
 	public Set<Entry<Key, Value>> entrySet() {
-		Set<Entry<Key, Value>> _setEntry = new Set<Entry<Key, Value>>();
+		Set<Entry<Key, Value>> _setEntry = new HashSet<Entry<Key, Value>>();
 		for(int i = 0; i < _keys.size(); i++)
 		{
 			for(int x = 0; x < _values.size(); x++)
