@@ -19,6 +19,9 @@ public class ArraySet <E> implements List<E>, Set<E> //wrote in list and set w/ 
 	@Override
 	public boolean add(E e) {
 		_list.add(e);
+		if (_list.add(e)){
+			return true;
+		}
 		return false;
 	}
 

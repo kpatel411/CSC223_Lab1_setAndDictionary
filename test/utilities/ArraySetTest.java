@@ -26,16 +26,28 @@ class ArraySetTest
 	@Test
 	void testAddE()
 	{
+		//adds objects to list
 		ArraySet <Integer> test1 = new ArraySet<Integer>();
 		test1.add(80);
-		//assertTrue(test1.add());
+		test1.add(75);
+		test1.add(70);
 		assertEquals(3, test1.size());
+		
+		//testing with empty
+		ArraySet <Integer> test2 = new ArraySet<Integer>();
+		assertEquals(0, test2.size());
+		
+		//testing with a null value
+		ArraySet <Integer> test3 = new ArraySet<Integer>();
+		test3.add(null);
+		assertEquals(3, test3.size());
 		
 	}
 
 	@Test
 	void testAddAllCollectionOfQextendsE()
 	{
+		//test to add objects to list
 		ArraySet <String> test1 = new ArraySet<String>();
 		//add values to arraylist
 		test1.add("hello");
@@ -46,6 +58,20 @@ class ArraySetTest
 		test1.addAll(test2);
 		assertEquals(2,test1.addAll(test2));
 		
+		//test with null values
+		ArraySet <String> testA = new ArraySet<String>();
+		//add values to arraylist
+		testA.add(null);
+		//add another set of numbers
+		ArraySet <String> testB = new ArraySet<String>();
+		testB.add(null); 
+		//use add all to combine 
+		testA.addAll(testB);
+		assertEquals(2,testA.addAll(testB));
+		
+		//test with empty
+		ArraySet <String> testEmpty = new ArraySet<String>();
+		assertEquals(0,testEmpty.addAll(testEmpty));
 		
 	}
 
@@ -139,5 +165,20 @@ class ArraySetTest
 		//addAll to combine
 		test1.addAll(2, test2);
 		assertEquals(2, test1.addAll(test2));
+		
+		//test with null values
+		ArraySet <Integer> testA = new ArraySet<Integer>();
+		//add values to arraylist
+		testA.add(null);
+		//add another set of numbers
+		ArraySet <Integer> testB = new ArraySet<Integer>();
+		testB.add(null); 
+		//use add all to combine 
+		testA.addAll(testB);
+		assertEquals(2,testA.addAll(testB));
+				
+		//test with empty
+		ArraySet <Integer> testEmpty = new ArraySet<Integer>();
+		assertEquals(0,testEmpty.addAll(testEmpty));
 	}
 }
