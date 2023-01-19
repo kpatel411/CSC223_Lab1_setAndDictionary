@@ -19,7 +19,15 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	
 	public ParallelArrayDictionary()
 	{
+		_keys = new ArraySet<Key>();
+		_values = new ArrayList<Value>();
 	}
+	
+	public ParallelArrayDictionary(Collection <? extends Key, Value> m)
+	{
+		this(); 
+	}
+	
 	@Override
 	public int size() {
 		int numSize = _keys.size();
