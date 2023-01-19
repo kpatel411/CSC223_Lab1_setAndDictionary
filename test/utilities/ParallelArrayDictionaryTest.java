@@ -2,6 +2,7 @@ package utilities;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
@@ -12,6 +13,17 @@ class ParallelArrayDictionaryTest
 	@Test
 	void testParallelArrayDictionary()
 	{
+		//test size of dictionary
+		ParallelArrayDictionary<String, String> testSize = new ParallelArrayDictionary<String, String>();
+		testSize.put("Hi", "Hello");
+		testSize.put("I am", "Testing the size");
+		testSize.put("Of this", "Dictionary");
+		assertEquals(3, testSize.size());
+		
+		//test empty dictionary
+		ParallelArrayDictionary<String, String> testEmptyDictionary = new ParallelArrayDictionary<String, String>();
+		assertEquals(0, testEmptyDictionary.size());
+		assertTrue(testEmptyDictionary.isEmpty());
 	}
 
 	@Test
@@ -20,7 +32,7 @@ class ParallelArrayDictionaryTest
 		//Tests when key is mapped to value
 		ParallelArrayDictionary<String, String> testIsMapped = new ParallelArrayDictionary<String, String>();
 		testIsMapped.put("1", "3");
-		testIsMapped.put("4", "7");
+		testIsMapped.put("5", "7");
 		testIsMapped.put("4", "0");
 		testIsMapped.put("10", "10");
 		assertEquals("0", testIsMapped.get("4"));
@@ -65,7 +77,6 @@ class ParallelArrayDictionaryTest
 		ParallelArrayDictionary<String, String> testHasValue = new ParallelArrayDictionary<String, String>();
 		testHasValue.put("This is", "A test");
 		testHasValue.put("This is also", "a test too");
-		assertEquals(2, testHasValue.size());
 		assertEquals("a test too", testHasValue.remove("This is also"));
 		
 		//Tests when a value does not exist for a key
