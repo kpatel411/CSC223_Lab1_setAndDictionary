@@ -90,15 +90,9 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	}
 	@Override
 	public void putAll(Map<? extends Key, ? extends Value> m) {
-		ArraySet<Key> _newKeys = new ArraySet<Key>();
-		ArrayList<Value> _newValues = new ArrayList<Value>();
-		for(int i = 0; i < _keys.size(); i++)
+		for(Map.Entry<Key, Value> entry : m.entrySet())
 		{
-			_newKeys.add(_keys.get(i));
-		}
-		for(int i = 0; i < _values.size(); i++)
-		{
-			_newValues.add(_values.get(i));
+			put(entry.get(Key), entry.get(Value));
 		}
 	}
 	@Override
