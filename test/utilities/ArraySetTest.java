@@ -21,7 +21,8 @@ class ArraySetTest
 		assertEquals(2, test1.size());
 		
 		//try testing boolean isEmpty
-		assertTrue(test1.isEmpty());
+		ArraySet <Integer> test2 = new ArraySet<Integer>();
+		assertTrue(test2.isEmpty());
 		
 	}
 

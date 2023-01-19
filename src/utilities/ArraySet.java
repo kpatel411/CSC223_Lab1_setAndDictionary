@@ -98,7 +98,7 @@ public class ArraySet <E> implements List<E>, Set<E> //wrote in list and set w/ 
 
 
 	@Override
-	public boolean addAll(int index, Collection<? extends E> c) { /////////see INDEX ISSUE
+	public boolean addAll(int index, Collection<? extends E> c) { //see INDEX ISSUE
 		// TODO Auto-generated method stub
 		if (index == -1) {
 			_list.contains(c); 
