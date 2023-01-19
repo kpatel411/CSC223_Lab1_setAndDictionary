@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 class ArraySetTest
 {
 	@Test
+	//constructor testing 
 	void testArraySetCollectionOfE()
 	{
 		//create new arrayset object and try testing for size
@@ -26,6 +27,7 @@ class ArraySetTest
 	}
 
 	@Test
+	//test the add integer method 
 	void testAddE()
 	{
 		//adds objects to list
@@ -47,6 +49,7 @@ class ArraySetTest
 	}
 
 	@Test
+	//test the add all method 
 	void testAddAllCollectionOfQextendsE()
 	{
 		//test to add objects to list
@@ -78,6 +81,7 @@ class ArraySetTest
 	}
 	
 	@Test
+	//test the add all integer method 
 	void testAddAllIntCollectionOfQextendsE()
 	{
 		//testing for when item exists in a list 
@@ -107,6 +111,7 @@ class ArraySetTest
 	}
 
 	@Test
+	//test the remain all method 
 	void testRetainAll()
 	{
 		//test retainAll (collection c) if values exist
@@ -148,6 +153,7 @@ class ArraySetTest
 	}
 
 	@Test
+	//test the remove all method 
 	void testRemoveAll()
 	{
 		//test removeAll (collection c)

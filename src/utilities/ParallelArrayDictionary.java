@@ -23,9 +23,9 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 		_values = new ArrayList<Value>();
 	}
 	
-	public ParallelArrayDictionary(Collection <? extends Key, Value> m)
+	//public ParallelArrayDictionary(Collection <? extends Key, Value> m)
 	{
-		this(); 
+	//	this(); 
 	}
 	
 	@Override
