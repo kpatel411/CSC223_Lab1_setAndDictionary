@@ -1,7 +1,6 @@
 package utilities;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Collection;
@@ -43,7 +42,7 @@ class ArraySetTest
 		//testing with a null value
 		ArraySet <Integer> test3 = new ArraySet<Integer>();
 		test3.add(null);
-		assertEquals(3, test3.size());
+		assertEquals(1, test3.size());
 		
 	}
 
@@ -59,7 +58,7 @@ class ArraySetTest
 		test2.add("hi"); 
 		//use add all to combine 
 		test1.addAll(test2);
-		assertEquals(2,test1.addAll(test2));
+		assertEquals(2, test1.size());
 		
 		//test with null values
 		ArraySet <String> testA = new ArraySet<String>();
@@ -70,12 +69,41 @@ class ArraySetTest
 		testB.add(null); 
 		//use add all to combine 
 		testA.addAll(testB);
-		assertEquals(2,testA.addAll(testB));
+		assertEquals(2, testA.size());
 		
 		//test with empty
 		ArraySet <String> testEmpty = new ArraySet<String>();
-		assertEquals(0,testEmpty.addAll(testEmpty));
+		assertEquals(0,testEmpty.size());
 		
+	}
+	
+	@Test
+	void testAddAllIntCollectionOfQextendsE()
+	{
+		//testing for when item exists in a list 
+		//create new integer items to add 
+		ArraySet <Integer> test1 = new ArraySet<Integer>();
+		test1.add(35);
+		ArraySet <Integer> test2 = new ArraySet<Integer>();
+		test2.add(80);
+		//addAll to combine
+		test1.addAll(test2);
+		assertEquals(2, test1.size());
+		
+		//test with null values
+		ArraySet <Integer> testA = new ArraySet<Integer>();
+		//add values to arraylist
+		testA.add(null);
+		//add another set of numbers
+		ArraySet <Integer> testB = new ArraySet<Integer>();
+		testB.add(null); 
+		//use add all to combine 
+		testA.addAll(testB);
+		assertEquals(2,testA.size());
+		
+		//test with empty
+		ArraySet <Integer> testEmpty = new ArraySet<Integer>();
+		assertEquals(0,testEmpty.size());
 	}
 
 	@Test
@@ -94,7 +122,8 @@ class ArraySetTest
 		test2.add("ghi");
 		//retain all matching values 
 		test2.retainAll(test1);
-		assertEquals(2, test2.retainAll(test1));
+		//assertEquals(2, test1.size());
+		assertEquals(2, test2.size());
 		
 		//test retainAll (collection c) if values do not exist
 		ArraySet <String> test3 = new ArraySet<String>();
@@ -109,11 +138,11 @@ class ArraySetTest
 		test4.add("GHI");
 		//retain all matching values 
 		test4.retainAll(test3);
-		assertEquals(2, test4.retainAll(test3));
+		assertEquals(0, test4.size());
 		
 		//test retainAll (collection c) if values are empty
-		ArraySet <String> testNull = new ArraySet<String>();
-		assertNull(testNull.retainAll(testNull));
+		ArraySet <String> testEmpty = new ArraySet<String>();
+		assertEquals(0, testEmpty.size());
 
 		
 	}
@@ -134,7 +163,7 @@ class ArraySetTest
 		test2.add("ghi");
 		//remove any mismatched information
 		test2.removeAll(test1);
-		assertEquals(2, test2.removeAll(test1));
+		assertEquals(1, test2.size());
 		
 		//test retainAll (collection c) if values do not exist
 		ArraySet <String> test3 = new ArraySet<String>();
@@ -149,39 +178,11 @@ class ArraySetTest
 		test4.add("GHI");
 		//retain all matching values 
 		test4.removeAll(test3);
-		assertEquals(2, test4.removeAll(test3));
+		assertEquals(3, test4.size());
 		
 		//test retainAll (collection c) if values are empty
 		ArraySet <String> testNull = new ArraySet<String>();
-		assertNull(testNull.removeAll(testNull));
+		assertEquals(0, testNull.size());
 	}
 
-	@Test
-	void testAddAllIntCollectionOfQextendsE()
-	{
-		//testing for when item exists in a list 
-		//create new integer items to add 
-		ArraySet <Integer> test1 = new ArraySet<Integer>();
-		test1.add(35);
-		ArraySet <Integer> test2 = new ArraySet<Integer>();
-		test2.add(80);
-		//addAll to combine
-		//test1.addAll(2, test2);
-		assertEquals(2, test1.addAll(test2));
-		
-		//test with null values
-		ArraySet <Integer> testA = new ArraySet<Integer>();
-		//add values to arraylist
-		testA.add(null);
-		//add another set of numbers
-		ArraySet <Integer> testB = new ArraySet<Integer>();
-		testB.add(null); 
-		//use add all to combine 
-		testA.addAll(testB);
-		assertEquals(2,testA.addAll(testB));
-				
-		//test with empty
-		ArraySet <Integer> testEmpty = new ArraySet<Integer>();
-		assertEquals(0,testEmpty.addAll(testEmpty));
-	}
 }
