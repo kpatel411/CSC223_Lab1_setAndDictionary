@@ -13,148 +13,112 @@ public class ArraySet <E> implements List<E>, Set<E> //wrote in list and set w/ 
 
 	protected ArrayList<E> _list;
 	// TODO Auto-generated constructor stub
-
+	//default
+	//takes collection
+	public ArraySet()
+	{
+		_list = new ArrayList<E>();
+	}
+	
+	public ArraySet(Collection<? extends E> c)
+	{
+		this(); //creating the arraylist
+		// Add all
+		for (E e: c) {
+			add(e);
+		}
+	}
 
 	//Adds element to list if it doesn't contain the element
 	@Override
 	public boolean add(E e) {
+		
+		if (_list.contains(e)) return false;
+		
 		_list.add(e);
-		if (_list.add(e)){
-			return true;
-		}
-		return false;
+		return true;
 	}
 
 	//Adds all elements to the set
 	@Override
 	public boolean addAll(Collection<? extends E> c) {
-		if(_list.addAll(c))
-		{
-			return true;
-		}
-		else { return false; }
+		if (_list.contains(c)) return false;
+		
+		_list.addAll(c);
+		return true;
 	}
 	//Returns number of elements in the list
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub
-		for (int i = 0; i < _list.size(); i++) {
-			if (i != 0) {
-			return _list.size();}
-		}
-		return 0;
-
+		return _list.size();
 	}
 
 	@Override
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub
-		for (int i = 0; i < _list.size(); i++) {
-			if (i != 0)
-				return _list.isEmpty();
-		}
-		return true;
+		return _list.isEmpty();
 	}
 
 	@Override
 	public boolean contains(Object o) {
 		// TODO Auto-generated method stub
-		for (int i = 0; i < _list.size(); i++) {
-			if (i != 0) {
-			return _list.contains(o);
-			}
-		}
-		return false;
+		return _list.contains(o);
 	}
 
 	@Override
 	public Iterator<E> iterator() {
 		// TODO Auto-generated method stub
-		for (int i = 0; i < _list.size(); i++) {
-			if (i > 0) {
-			return _list.iterator();
-			}
-		}
-		return null;
+		return _list.iterator();
 	}
 
 	@Override
 	public Object[] toArray() {
 		// TODO Auto-generated method stub
-		for (int i = 0; i < _list.size(); i++) {
-			if (i != 0) {
-			return _list.toArray();
-			}
-		}
-		return null;
+		return _list.toArray();
 	}
 
 	@Override
 	public <T> T[] toArray(T[] a) {
 		// TODO Auto-generated method stub
-		for (int i = 0; i < _list.size(); i++) {
-			if (i != 0) {
-			return _list.toArray(a);
-			}
-		}
-		return null;
+		return _list.toArray(a);
 	}
 
 	@Override
 	public boolean remove(Object o) {
 		// TODO Auto-generated method stub
-		for (int i = 0; i < _list.size(); i++) {
-			if (i != 0) {
-				return _list.remove(o);
-			}
-		}
-		return false;
+		return _list.remove(o);
 	}
 
 	@Override
 	public boolean containsAll(Collection<?> c) {
 		// TODO Auto-generated method stub
-		for (int i = 0; i < _list.size(); i++) {
-			if (i != 0) {
-			//somehow check to see if c in collection compares to other values >>conditional
-				return _list.containsAll(c);
-			}
-		}
-		return false;
+		return _list.containsAll(c);
 	}
 
 
 	@Override
-	public boolean addAll(int index, Collection<? extends E> c) {
+	public boolean addAll(int index, Collection<? extends E> c) { /////////see INDEX ISSUE
 		// TODO Auto-generated method stub
-		for (int i = 0; i < _list.size(); i++) {
-			if (i == index) {
-				return _list.addAll(index, c);
-			}
+		if (index == -1) {
+			_list.contains(c); 
+			return false;
 		}
-		return false;
+		 
+		_list.addAll(index, c);
+		 return true;
 	}
 
 	@Override
 	public boolean removeAll(Collection<?> c) {
 		// TODO Auto-generated method stub
-		for (int i = 0; i < _list.size(); i++) {
-			if (i != 0) {
-				return _list.removeAll(c);
-			}
-		}
-		return false;
+		return _list.removeAll(c);
 	}
 
 	@Override
 	public boolean retainAll(Collection<?> c) {
 		// TODO Auto-generated method stub
-		for (int i = 0; i < _list.size(); i++) {
-			if (i != 0) {
 			return _list.retainAll(c);
-			}
-		}
-		return false;
 	}
 
 	@Override
