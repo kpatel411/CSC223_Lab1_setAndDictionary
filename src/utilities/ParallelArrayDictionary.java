@@ -4,6 +4,7 @@ import java.util.AbstractMap;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -90,6 +91,7 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	}
 	@Override
 	public void putAll(Map<? extends Key, ? extends Value> m) {
+		if(_keys.isEmpty()) return;
 		for(Entry<? extends Key, ? extends Value> entry : m.entrySet())
 		{
 			put(entry.getKey(), entry.getValue());
@@ -120,16 +122,13 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	}
 	@Override
 	public Set<Entry<Key, Value>> entrySet() {
-		Key k = _keys.get(0);
-		Value v = _values.get(0);
-		Set<Entry<Key, Value>> _setEntry = (Set<Entry<Key, Value>>) new AbstractMap.SimpleEntry<Key, Value>(k,v);
+		if(_keys.isEmpty()) { return null; }
+		HashMap<Key, Value> _newMap = new HashMap<Key, Value>();
 		for(int i = 0; i < _keys.size(); i++)
 		{
-			k = _keys.get(i);
-			v = _values.get(i);
-			((Map<Key, Value>) _setEntry).put(k,v);
+			_newMap.put(_keys.get(i), _values.get(i));
 		}
-		return _setEntry;
+		return _newMap.entrySet();
 	}
 
 }
