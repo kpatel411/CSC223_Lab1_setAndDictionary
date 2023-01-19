@@ -1,3 +1,9 @@
+/**
+* In this class, we test ArraySet based on methods from the ArraySet file and implemented methods.
+*
+* @author <Khushi Patel>
+* @date <01/18/2023>
+*/
 package utilities;
 
 import static org.junit.Assert.assertEquals;
