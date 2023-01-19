@@ -2,6 +2,7 @@ package utilities;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Collection;
 
@@ -12,12 +13,15 @@ class ArraySetTest
 	@Test
 	void testArraySetCollectionOfE()
 	{
-		//create new arrayset object
-		ArraySet <String> test1 = new ArraySet<String>();
+		//create new arrayset object and try testing for size
+		ArraySet <Integer> test1 = new ArraySet<Integer>();
 		//add strings to new test object
-		test1.add("one");
-		test1.add("two");
+		test1.add(1);
+		test1.add(2);
+		assertEquals(2, test1.size());
 		
+		//try testing boolean isEmpty
+		assertTrue(test1.isEmpty());
 		
 	}
 
@@ -161,7 +165,7 @@ class ArraySetTest
 		ArraySet <Integer> test2 = new ArraySet<Integer>();
 		test2.add(80);
 		//addAll to combine
-		test1.addAll(2, test2);
+		//test1.addAll(2, test2);
 		assertEquals(2, test1.addAll(test2));
 		
 		//test with null values
