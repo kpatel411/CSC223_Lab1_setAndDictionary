@@ -52,11 +52,7 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	 */
 	@Override
 	public boolean isEmpty() {
-		if(_keys.size() == 0)
-		{
-			return true;
-		}
-		return false;
+		return(_keys.size() == 0);
 	}
 	
 	/***
@@ -66,14 +62,7 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	 */
 	@Override
 	public boolean containsKey(Object key) {
-		for(int i = 0; i < _keys.size(); i++)
-		{
-			if(_keys.get(i).equals(key))
-			{
-				return true;
-			}
-		}
-		return false;
+		return _keys.contains(key);
 	}
 	
 	/***
@@ -83,14 +72,7 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	 */
 	@Override
 	public boolean containsValue(Object value) {
-		for(int i = 0; i < _values.size(); i++)
-		{
-			if(_values.get(i).equals(value))
-			{
-				return true;
-			}
-		}
-		return false;
+		return _keys.contains(value);
 	}
 	
 	/***
@@ -100,8 +82,11 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	 */
 	@Override
 	public Value get(Object key) {
-		if(_values.isEmpty()) return null;
-		return _values.get(_keys.indexOf(key));
+		int index = _keys.indexOf(key);
+		if(index == -1) {
+			return null;
+		}
+		return _values.get(index);
 	}
 	
 	/***
@@ -168,12 +153,7 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	 */
 	@Override
 	public Set<Key> keySet() {
-		Set<Key> _keysSet = new HashSet<Key>();
-		for(int i = 0; i < _keys.size(); i++)
-		{
-			_keysSet.add(_keys.get(i));
-		}
-		return _keysSet;
+		return _keys;
 	}
 	
 	/***

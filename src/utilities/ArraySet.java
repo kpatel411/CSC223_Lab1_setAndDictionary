@@ -150,27 +150,13 @@ public class ArraySet <E> implements List<E>, Set<E> //wrote in list and set w/ 
 	@Override
 	//find and return a value at index
 	public E get(int index) {
-		for (int i = 0; i < _list.size(); i++)
-		{
-			if (i == index)
-			{
-				return _list.get(index);
-			}
-		}
-		return null;
+		return _list.get(index);
 	}
 
 	@Override
 	//find index then assigns element value to it
 	public E set(int index, E element) {
-		for (int i = 0; i <_list.size(); i++)
-		{
-			if (i == index)
-			{
-				_list.set(index, element);
-			}
-		}
-		return null;
+			return	_list.set(index, element);
 	}
 
 	@Override
@@ -189,33 +175,13 @@ public class ArraySet <E> implements List<E>, Set<E> //wrote in list and set w/ 
 	@Override
 	//turns the index of a particular object by running through whole list
 	public int indexOf(Object o) {
-		if(_list.contains(o))
-		{
-			for(int i = 0; i < _list.size(); i++)
-			{
-				if(_list.get(i).equals(o))
-				{
-					return i;
-				}
-			}
-		}
-		return -1;
+		return _list.indexOf(o);
 	}
 
 	@Override
 	//return the index of last object in the list
 	public int lastIndexOf(Object o) {
-		if(_list.contains(o))
-		{
-			for (int i = _list.size()-1; i >= 0; i--)
-			{
-				if(_list.get(i).equals(o))
-				{
-					return i;
-				}
-			}
-		}
-		return -1;
+		return _list.lastIndexOf(o);
 	}
 
 	@Override
