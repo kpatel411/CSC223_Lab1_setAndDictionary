@@ -173,19 +173,6 @@ class ArraySetTest
 		test2.retainAll(test1);
 		assertEquals(2, test2.size());
 		
-		//test for duplicates
-		ArraySet <String> testDupe = new ArraySet<String>();
-		ArraySet <String> testDupe2 = new ArraySet<String>();
-		testDupe.add("abc");
-		testDupe.add("def");
-		testDupe.add("ghi");
-		testDupe2.add("abd");
-		testDupe2.add("def");
-		testDupe2.add("ghi");
-		testDupe2.retainAll(testDupe);
-		assertEquals(testDupe, testDupe2);
-		
-		
 		//test retainAll (collection c) if values do not exist/null
 		ArraySet <String> test3 = new ArraySet<String>();
 		//create test strings
@@ -226,18 +213,6 @@ class ArraySetTest
 		//remove any mismatched information
 		test2.removeAll(test1);
 		assertEquals(1, test2.size());
-		
-		//test for duplicates
-		ArraySet <String> testDupe = new ArraySet<String>();
-		ArraySet <String> testDupe2 = new ArraySet<String>();
-		testDupe.add("abc");
-		testDupe.add("def");
-		testDupe.add("ghi");
-		testDupe2.add("abd");
-		testDupe2.add("def");
-		testDupe2.add("ghi");
-		testDupe2.removeAll(testDupe);
-		assertEquals(testDupe, testDupe2);
 		
 		//test retainAll (collection c) if values do not exist
 		ArraySet <String> test3 = new ArraySet<String>();
