@@ -1,3 +1,6 @@
+/***
+ * This class tests the methods in the ParallelArrayDictionary class
+ */
 package utilities;
 
 import static org.junit.Assert.assertEquals;
@@ -10,6 +13,9 @@ import org.junit.jupiter.api.Test;
 
 class ParallelArrayDictionaryTest
 {
+	/***
+	 * Tests the constructor
+	 */
 	@Test
 	void testParallelArrayDictionary()
 	{
@@ -26,6 +32,9 @@ class ParallelArrayDictionaryTest
 		assertTrue(testEmptyDictionary.isEmpty());
 	}
 
+	/***
+	 * Tests the get() method
+	 */
 	@Test
 	void testGet()
 	{
@@ -49,6 +58,9 @@ class ParallelArrayDictionaryTest
 		assertNull(testEmpty.get("No"));
 	}
 
+	/***
+	 * Tests the put() method
+	 */
 	@Test
 	void testPut()
 	{
@@ -70,6 +82,9 @@ class ParallelArrayDictionaryTest
 		assertNull(testEmptyPAD.put("Hello there", "How are you"));
 	}
 
+	/***
+	 * Tests the remove() method
+	 */
 	@Test
 	void testRemove()
 	{
@@ -92,6 +107,9 @@ class ParallelArrayDictionaryTest
 		
 	}
 
+	/***
+	 * Tests the putAll() method
+	 */
 	@Test
 	void testPutAll()
 	{
@@ -151,6 +169,9 @@ class ParallelArrayDictionaryTest
 	
 	}
 
+	/***
+	 * Tests the clear() method
+	 */
 	@Test
 	void testClear()
 	{
