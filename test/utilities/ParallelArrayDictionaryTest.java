@@ -102,7 +102,7 @@ class ParallelArrayDictionaryTest
 		ParallelArrayDictionary<ArraySet<String>, ArrayList<String>> newTestEmpty = new ParallelArrayDictionary<ArraySet<String>, ArrayList<String>>();
 		testEmpty.put(testEmpty1, testEmpty2);
 		newTestEmpty.putAll(testEmpty);
-		assertTrue(newTestEmpty.isEmpty());
+		assertEquals(testEmpty.size(), newTestEmpty.size());
 		
 		//Test with duplicate values
 		ArraySet<String> testDuplicates1 = new ArraySet<String>();
@@ -148,7 +148,7 @@ class ParallelArrayDictionaryTest
 		testNullValues.put(testNullValues1, testNullValues2);
 		newTestNullValues.putAll(testNullValues);
 		assertEquals(testNullValues.size(), newTestNullValues.size());
-		
+	
 	}
 
 	@Test

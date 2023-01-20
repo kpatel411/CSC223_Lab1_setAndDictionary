@@ -91,7 +91,6 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	}
 	@Override
 	public void putAll(Map<? extends Key, ? extends Value> m) {
-		if(_keys.isEmpty()) return;
 		for(Entry<? extends Key, ? extends Value> entry : m.entrySet())
 		{
 			put(entry.getKey(), entry.getValue());
@@ -122,7 +121,6 @@ public class ParallelArrayDictionary <Key, Value> implements Map <Key, Value>
 	}
 	@Override
 	public Set<Entry<Key, Value>> entrySet() {
-		if(_keys.isEmpty()) { return null; }
 		HashMap<Key, Value> _newMap = new HashMap<Key, Value>();
 		for(int i = 0; i < _keys.size(); i++)
 		{
